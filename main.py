@@ -48,7 +48,7 @@ def delete_tweet_before_date(tweetObj,date_inp,exception_twt=[]):
         if tweetDate < cutoff_date and (tweetInfo['id'] not in exception_twt):
             deleted_soon.append(tweetInfo['id'])
     # confimation input in cli and loop thorugh all the id to delete it
-    if (input("THIS PROCESS CANNOT BE UNDONE, PROCEED? Y/N").lower() == "y"):
+    if (input("THIS PROCESS CANNOT BE UNDONE, PROCEED? (Y/N) ").lower() == "y"):
         for tweetID in deleted_soon:
             api.destroy_status(tweetID)
     # print(deleted_soon)
