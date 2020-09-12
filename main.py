@@ -51,12 +51,11 @@ def delete_tweet_before_date(tweetObj,date_inp,exception_twt=[]):
     if (input("THIS PROCESS CANNOT BE UNDONE, PROCEED? (Y/N) ").lower() == "y"):
         for tweetID in deleted_soon:
             api.destroy_status(tweetID)
-    # print(deleted_soon)
     print("{} tweets was deleted.".format(len(deleted_soon)))
 
 if __name__ == "__main__":
     api = oauth_login(api_key,api_secret)
     print("Authenticated as @{}".format(api.me().screen_name))
     tweets = fetch_tweet_json('tweet.json')
-    # date_of_tweet = input("Enter the cutoff date: (DD/MM/YY HH:MM")
-    delete_tweet_before_date(tweets, "01/01/13 00:00")
+    date_of_tweet = input("Enter the cutoff date: (DD/MM/YY HH:MM")
+    delete_tweet_before_date(tweets, date_of_tweet)
